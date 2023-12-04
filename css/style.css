@@ -4,21 +4,65 @@
     box-sizing: border-box;
 }
 
+#btnIniciarJogo {
+    display: block;
+    width: 19%;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
 .game-board {
     width: 100%;
-    height: 736px;
-    border-bottom: 18px solid rgb(12, 157, 12);
+    height: 756px;
+    /*border-bottom: 18px solid rgb(12, 157, 12);*/
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(#33a7d9, #e0f6ff);
+    background-color: #0648ba;
 }
+
+.game-board, cenario{
+    position: relative;
+    width: 100vw;
+    height: 100vh;    
+    background-image: url(../archives/cenario.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+
+.inimigo{
+    position: absolute;
+    width: 80px;
+    height: 80px;    
+    background-image: url(../archives/inimigoLadoEsquerdo.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 0;
+    bottom: 2px;
+    right: 0;
+}
+
+/*
+#ceu{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;    
+    background-image: url(../archives/cenarioCeuAlternativo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+*/
 
 .button-reload {
     border: none;
-    margin: 8px;
+    margin: 10px;
     padding: 5px;
-    background: #6080d8;
+    background: #0937b5;
     color: white;
 }
 
@@ -26,7 +70,7 @@
     position: absolute;
     bottom: 0;
     width: 70px;
-    height: 80px;
+    height: 95px;
     animation: pipe-animation 1.7s infinite linear;
 }
 
@@ -34,6 +78,10 @@
    width: 150px;
    position: absolute;
    bottom: 0;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   background-position: 0 0;
+   bottom: 0px;
 }
 
 .jump {
