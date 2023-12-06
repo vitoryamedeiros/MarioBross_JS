@@ -10,19 +10,23 @@
 </head>
 <body>
 
-    <div class="game-board">
+    <div id="game-board">
 
-        <div class="cenario">
-            <div class="inimigo"></div>
-            <div class="menu"></div>
-            <div class="time">400</div>
-            <div class="life">5</div>
-            <div class="coin">0</div>
-            <div class="point">0000</div>
-            <img src="archives/clouds.png" class="clouds">
-            <img src="archives/pipe.png" class="pipe"> 
-            <img src="archives/mario.gif" class="mario">
-            <input type="button" class="button-reload" value="Reiniciar" onClick="window.location.reload()">
+        <div id="cenario">
+            <div id="inimigo"></div>
+            <div id="menu"></div>
+            <div id="time">400</div>
+            <div id="life">5</div>
+            <div id="coin">0</div>
+            <div id="point">0000</div>
+            <div id="bloco"></div>
+            <div id="pipe" ></div>
+            <img src="archives/clouds.png" id="clouds">
+
+
+            <!--<img src="archives/pipe.png" class="pipe">--> 
+            <img src="archives/mario.gif" id="personagem">
+            <input type="button" id="button-reload" value="Reiniciar" onClick="window.location.reload()">
         </div>
 
         <!--<input id="btnIniciarJogo" type="button" value="START">-->             
@@ -31,6 +35,6 @@
 
 </body>
 
-<script defer src="./js/script.js "></script>
+<script defer src="./js/teste.js "></script>
 
 </html>

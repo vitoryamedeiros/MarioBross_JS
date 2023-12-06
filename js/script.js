@@ -1,33 +1,79 @@
-const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
-  
-const jump = () => {
-    mario.classList.add('jump');
+const personagem = document.getElementById('personagem');
+const bloco = document.getElementById('bloco');
+const life = document.getElementById('life');
+const coin = document.getElementById('coin');
+const point = document.getElementById('point');
 
-    setTimeout(() => {
-        mario.classList.remove('jump');
-    }, 500);
+let position = 0;
+let direcao = 0;
+let speed = 10;
+
+let lifeAtual = 5;
+let coinAtual = 0;
+let pointAtual = 0;
+
+let checkColisao;
+
+function pressKey(event){
+    if (event.key === "ArrowRight"){
+        direcao = 1;
+        personagem.style.backgroundImage = "url(../archives/mario.gif)";
+
+    } else if (event.key === "ArrowLeft") {
+        direcao = -1;
+
+    } else if (event.code === "Space") {
+        personagem.classList.add('jump');
+        setTimeout(() => {
+            personagem.classList.remove('jump');
+        }, 500);
+    }
 }
 
-const loop = setInterval(() => {
-
-    const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
-
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-
-        pipe.style.animation = 'none';
-        pipe.style.left = `${pipePosition}px`;
-
-        mario.style.animation = 'none';
-        mario.style.bottom = `${marioPosition}px`;
-
-        mario.src = './archives/game-over.png';
-        mario.style.width = '55px'
-        mario.style.marginLeft = '50px'
-
-        clearInterval(loop);
+function soltaKey(event){
+    if (event.key === "ArrowRight"){
+        direcao = 0;        
+    } else if (event.key === "ArrowLeft") {
+        direcao = 0;
     }
-}, 10);
+}
 
-document.addEventListener('keydown', jump);
+function attMovimentos() {
+    position+= direcao * speed;
+    personagem.style.left = position + "px";
+}
+
+function colisaoBloco() {
+    const checkPersonagem = personagem.getBoundingClientRect();
+    const checkBloco = bloco.getBoundingClientRect();
+    if (
+        checkBloco.left < checkPersonagem.right &&
+        checkBloco.right > checkPersonagem.left &&
+        checkBloco.top < checkPersonagem.bottom &&
+        checkBloco.bottom > checkPersonagem.top 
+        ) {
+            clearInterval(checkColisao);
+            coinAtual++;
+            coin.textContent = coinAtual;
+            pointAtual+= +10;
+            point.textContent = pointAtual;
+            checkCoins();
+            setTimeout(() =>{
+                checkColisao = setInterval(colisaoBloco, 10); 
+            }, 500)
+        }
+}
+
+    function checkCoins() {
+        if (coinAtual === 20) {
+            coinAtual = 0;
+            coin.textContent = coinAtual;
+            lifeAtual++;
+            life.textContent = lifeAtual;
+        }
+    }
+
+document.addEventListener("keydown", pressKey);
+document.addEventListener("keyup", soltaKey);
+setInterval(attMovimentos, 50); 
+checkColisao = setInterval(colisaoBloco, 10); 

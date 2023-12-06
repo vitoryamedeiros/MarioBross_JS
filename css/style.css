@@ -3,6 +3,7 @@
     src: url(../archives/SuperMarioWorld.ttf) format('truetype');
 }
 
+
 * {
     margin: 0;
     padding: 0;
@@ -26,9 +27,9 @@
 }
 */
 
-.game-board {
+#game-board {
     width: 100%;
-    height: 756px;
+    height: 100%;
     /*border-bottom: 18px solid rgb(12, 157, 12);*/
     margin: 0 auto;
     position: relative;
@@ -36,7 +37,7 @@
     background-color: #0648ba;
 }
 
-.cenario{
+#cenario{
     position: relative;
     width: 100vw;
     height: 100vh;    
@@ -63,9 +64,9 @@
 }
 */
 
-.menu {
+#menu {
     position: absolute;
-    width: 800px;
+    width: 50vw;
     height: 140px;    
     background-image: url(../archives/menuDoJogo.png);
     background-repeat: no-repeat;
@@ -74,48 +75,49 @@
     top: 0;
 }
 
-.time {
+#time {
     position: absolute;
     top: 73px;
-    right: 615px;
+    right: 620px;
     font-size: 22px;
     color: #ffdf73;
 }
 
-.life {
+#life {
     position: absolute;
     top: 76px;
-    left: 445px;
+    left: 460px;
     color: white;
     font-size: 25px;
 }
 
-.coin {
+#coin {
     position: absolute;
     top: 45px;
-    right: 438px;
+    right: 440px;
     color: white;
     font-size: 25px;    
 }
 
-.point {
+#point {
     position: absolute;
     top: 73px;
-    right: 438px;
+    right: 440px;
     color: white;
     font-size: 25px;    
 }
 
-.mario {
-   width: 100px;
+#personagem {
+   width: 80px;
    position: absolute;
+   left: 0;
    bottom: 0;
    background-repeat: no-repeat;
    background-size: 100% 100%;
    background-position: 0 0;
 }
 
-.inimigo{
+#inimigo{
     position: absolute;
     width: 45px;
     height: 45px;    
@@ -125,18 +127,35 @@
     background-position: 0 0;
     bottom: 2px;
     right: 0;
+    animation: inimigo-animation 19s infinite linear;
 }
 
-
-.pipe {
+#pipe {
     position: absolute;
     bottom: 0;
-    width: 70px;
-    height: 95px;
+    width: 85px;
+    height: 110px;
+    background-image: url(../archives/pipe.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 0;
     animation: pipe-animation 1.7s infinite linear;
+
 }
 
-.clouds {
+#bloco {
+    position: absolute;
+    width: 50px;
+    height: 50px;    
+    background-image: url(../archives/yellowbox.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 0;
+    right: 350px;
+    bottom: 235px;
+}
+
+#clouds {
     position: absolute;
     top: 0;
     justify-content: start;
@@ -149,7 +168,7 @@
     animation: jump 500ms ease-out;
 }
 
-.button-reload {
+#button-reload {
     /*display: BUGA COM O CENARIO EM DISPLAY FLEX ;*/
     display: inline;
     top: 0;
@@ -160,7 +179,17 @@
     color: white;
 }
 
-@keyframes pipe-animation {
+@keyframes inimigo-animation {
+    from {
+        right: -100px;
+    }
+
+    to {
+        right: 105%;
+    }
+}
+
+/*@keyframes pipe-animation {
     from {
         right: -80px;
     }
@@ -169,12 +198,17 @@
         right: 100%;
     }
 }
+*/
 
 @keyframes jump {
     0% {
-        bottom: 0;
+        bottom: 0px;
     }
 
+    20% {
+        bottom: 180px;
+    }
+    
     40% {
         bottom: 180px;
     }
@@ -186,7 +220,7 @@
     60% {
         bottom: 180px;
     }
-    
+
     100% {
         bottom: 0;
     }
