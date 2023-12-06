@@ -1,9 +1,20 @@
+@font-face {
+    font-family: 'Mario';
+    src: url(../archives/SuperMarioWorld.ttf) format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-size: 28px;
+    font-family: 'Mario'
 }
 
+/*
 #btnIniciarJogo {
     display: block;
     width: 19%;
@@ -13,6 +24,7 @@
     background-color: black;
     color: rgb(255, 255, 255);
 }
+*/
 
 .game-board {
     width: 100%;
@@ -24,7 +36,7 @@
     background-color: #0648ba;
 }
 
-.game-board, cenario{
+.cenario{
     position: relative;
     width: 100vw;
     height: 100vh;    
@@ -32,12 +44,81 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+.cenariodois{
+    position: relative;
+    width: 100vw;
+    height: 100vh;    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+*/
+
+.menu {
+    position: absolute;
+    width: 800px;
+    height: 140px;    
+    background-image: url(../archives/menuDoJogo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 0;
+    top: 0;
+}
+
+.time {
+    position: absolute;
+    top: 73px;
+    right: 615px;
+    font-size: 22px;
+    color: #ffdf73;
+}
+
+.life {
+    position: absolute;
+    top: 76px;
+    left: 445px;
+    color: white;
+    font-size: 25px;
+}
+
+.coin {
+    position: absolute;
+    top: 45px;
+    right: 438px;
+    color: white;
+    font-size: 25px;    
+}
+
+.point {
+    position: absolute;
+    top: 73px;
+    right: 438px;
+    color: white;
+    font-size: 25px;    
+}
+
+.mario {
+   width: 100px;
+   position: absolute;
+   bottom: 0;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   background-position: 0 0;
 }
 
 .inimigo{
     position: absolute;
-    width: 80px;
-    height: 80px;    
+    width: 45px;
+    height: 45px;    
     background-image: url(../archives/inimigoLadoEsquerdo.gif);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -46,25 +127,6 @@
     right: 0;
 }
 
-/*
-#ceu{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;    
-    background-image: url(../archives/cenarioCeuAlternativo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
-}
-*/
-
-.button-reload {
-    border: none;
-    margin: 10px;
-    padding: 5px;
-    background: #0937b5;
-    color: white;
-}
 
 .pipe {
     position: absolute;
@@ -74,26 +136,29 @@
     animation: pipe-animation 1.7s infinite linear;
 }
 
-.mario {
-   width: 150px;
-   position: absolute;
-   bottom: 0;
-   background-repeat: no-repeat;
-   background-size: 100% 100%;
-   background-position: 0 0;
-   bottom: 0px;
+.clouds {
+    position: absolute;
+    top: 0;
+    justify-content: start;
+    width: 500px;
+    animation: clouds-animations 10s infinite linear;
 }
+
 
 .jump {
     animation: jump 500ms ease-out;
 }
 
-.clouds {
-    position: absolute;
-    width: 500px;
-    animation: clouds-animations 10s infinite linear;
+.button-reload {
+    /*display: BUGA COM O CENARIO EM DISPLAY FLEX ;*/
+    display: inline;
+    top: 0;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    background: rgb(68, 106, 210);
+    color: white;
 }
-
 
 @keyframes pipe-animation {
     from {

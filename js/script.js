@@ -6,7 +6,6 @@ const jump = () => {
 
     setTimeout(() => {
         mario.classList.remove('jump');
-
     }, 500);
 }
 
@@ -24,9 +23,8 @@ const loop = setInterval(() => {
         mario.style.bottom = `${marioPosition}px`;
 
         mario.src = './archives/game-over.png';
-        mario.style.width = '75px'
+        mario.style.width = '55px'
         mario.style.marginLeft = '50px'
-
 
         clearInterval(loop);
     }
